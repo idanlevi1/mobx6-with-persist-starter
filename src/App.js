@@ -1,48 +1,36 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-// import { NoMatch } from './screens'
-import { Provider } from 'mobx-react';
-import { PoolGameStore } from './stores'
-import { create } from 'mobx-persist'
-import Demo from './Demo';
-// import Modals from './components/Modals';
+import { Provider, observer } from 'mobx-react';
+import { GameStore, UserStore } from './stores'
+import RootComponent from './RootComponent';
+import { isSynchronized } from 'mobx-persist-store';
 
-// const stores = { AppStore, UserStore, SignalrDataStore, DynamicStore, PoolGameStore };
-const stores = { PoolGameStore };
+const stores = { GameStore, UserStore };
 
-const hydrate = create();
 
-const HandleHydrate = async () => {
-  return new Promise((resolve, reject) => {
-    // hydrate('user', UserStore).then(() => {
-    // hydrate('psWinner16', PoolGameStore).then(() => {
-    // console.log("HandleHydrate -> PoolGameStore", PoolGameStore)
-    //   resolve(true)
-    // })
-  })
-  // })
-}
+const App = observer(() => {
+  console.log("App")
 
-function App() {
-  useEffect(() => {
-    async function fetchData() {
-      await HandleHydrate();
-    }
-    fetchData();
-  }, [])
+  const allStoreAreSynchronized = () => {
+    return Object.values(stores).every((store => {
+      return isSynchronized(store)
+    }))
+  }
+
+  if (!allStoreAreSynchronized()) {
+    console.log("loading")
+    return <p>Loading...</p>;
+  }
 
   return (
     <Provider {...stores}>
       <Router>
         <Switch>
-          <Route path='/' exact component={Demo} />
-          {/* <Route path='/changepass' exact component={ChangePassword} />
-          <Route path="*" component={NoMatch} /> */}
+          <Route path='/' exact component={RootComponent} />
         </Switch>
       </Router>
-      {/* <Modals /> */}
     </Provider>
   );
-}
+})
 
 export default App;

@@ -5339,7 +5339,7 @@ extsprintf@^1.2.0:
   resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.4.0.tgz#e2689f8f356fad62cca65a3a91c5df5f9551692f"
   integrity sha1-4mifjzVvrWLMplo6kcXfX5VRaS8=
 
-faker@^5.4.0:
+faker@^5.5.2:
   version "5.5.2"
   resolved "https://registry.yarnpkg.com/faker/-/faker-5.5.2.tgz#d6f99923fb757b26733a6d2396ddb448ac5bb446"
   integrity sha512-6G3lzZXWjWfqTJDS9KhHFIislZMGdrzDqews3T14E/dsANVbs3YT4A3jSNDrbA/gbtmjLuKJx9DzcLucdXBqBw==
@@ -8134,6 +8134,11 @@ mkdirp@^1.0.3, mkdirp@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-1.0.4.tgz#3eb5ed62622756d79a5f0e2a221dfebad75c2f7e"
   integrity sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
+
+mobx-persist-store@^0.5.30:
+  version "0.5.30"
+  resolved "https://registry.yarnpkg.com/mobx-persist-store/-/mobx-persist-store-0.5.30.tgz#1f578478af87c458e28bd120d8e63b388b5cbd47"
+  integrity sha512-I4NW8ly0yD06+WPqzQb30dwRzrL2Uhnwd+40EBd+Zlorm9M7rc1Zx3Z6OTBjwqYVDweqLKKXttc66LpiKS6f1A==
 
 mobx-persist@^0.4.1:
   version "0.4.1"
