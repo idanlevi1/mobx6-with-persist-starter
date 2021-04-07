@@ -12,6 +12,9 @@ const ComponentA = inject("GameStore", "UserStore")(
                         <p>{`Game Data Id: ${this.props.GameStore.getGameData.id}`}</p>
                         <p>{`Game Name: ${this.props.GameStore.getGameName}`}</p>
                         <p>{`Username: ${this.props.UserStore.getUsername}`}</p>
+                        <button onClick={() => { this.props.GameStore.clearStore() }} className="link-button">Clear LocalStorage GameStore data</button>
+                        <br /><br />
+                        <button onClick={() => { this.props.UserStore.clearStore() }} className="link-button">Clear LocalStorage UserStore data</button>
                     </div>
                 )
             }
